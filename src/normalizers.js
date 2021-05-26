@@ -201,8 +201,9 @@ class ImageNormalizer extends Normalizer {
         let frameSize = referenceDataset.PixelData.byteLength;
         ds.PixelData = new ArrayBuffer(ds.NumberOfFrames * frameSize);
         let frame = 0;
-        distanceDatasetPairs.forEach(function(pair) {
-            let dataset = pair[1];
+        this.datasets.forEach(function(dataset) {
+        //distanceDatasetPairs.forEach(function(pair) {
+        //    let dataset = pair[1];
             let pixels = new Uint16Array(dataset.PixelData);
             let frameView = new Uint16Array(
                 ds.PixelData,
